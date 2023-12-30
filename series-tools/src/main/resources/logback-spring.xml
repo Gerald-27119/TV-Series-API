@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<configuration>
+    <include resource="org/springframework/boot/logging/logback/base.xml"/>
+
+    <appender name="SIFT" class="ch.qos.logback.classic.sift.SiftingAppender">
+        <discriminator>
+            <key>appLifeCycle</key>
+            <defaultValue>unknown</defaultValue>
+        </discriminator>
+        <sift>
+            <appender name="FILE-${appLifeCycle}" class="ch.qos.logback.core.rolling.RollingFileAppender">
+                <file>./logs/${appLifeCycle}.log</file>
+                <encoder>
+                    <pattern>%d{yyyy-MM-dd HH:mm:ss.SSS} %5p ${PID} --- [%t] %-40.40logger{39} : %m%n%wex</pattern>
+                </encoder>
+            </appender>
+        </sift>
+    </appender>
+
+    <logger name="com.example.seriestools.series" level="INFO" additivity="false">
+        <appender-ref ref="SIFT" />
+    </logger>
+</configuration>
