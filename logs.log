@@ -1,0 +1,100 @@
+2023-12-30T13:18:12.981+01:00  INFO 15496 --- [main] c.e.s.SeriesUpdaterApplication           : Starting SeriesUpdaterApplication using Java 21.0.1 with PID 15496 (C:\Users\piotr\IdeaProjects\jaz-project\series-updater_\target\classes started by piotr in C:\Users\piotr\IdeaProjects\jaz-project)
+2023-12-30T13:18:12.985+01:00  INFO 15496 --- [main] c.e.s.SeriesUpdaterApplication           : No active profile set, falling back to 1 default profile: "default"
+2023-12-30T13:18:13.600+01:00  INFO 15496 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2023-12-30T13:18:13.651+01:00  INFO 15496 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 44 ms. Found 7 JPA repository interfaces.
+2023-12-30T13:18:13.653+01:00  INFO 15496 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2023-12-30T13:18:13.655+01:00  INFO 15496 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 2 ms. Found 0 JPA repository interfaces.
+2023-12-30T13:18:13.984+01:00  WARN 15496 --- [main] trationDelegate$BeanPostProcessorChecker : Bean 'org.springframework.ws.config.annotation.DelegatingWsConfiguration' of type [org.springframework.ws.config.annotation.DelegatingWsConfiguration$$SpringCGLIB$$0] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying). The currently created BeanPostProcessor [annotationActionEndpointMapping] is declared through a non-static factory method on that class; consider declaring it as static instead.
+2023-12-30T13:18:14.036+01:00  INFO 15496 --- [main] .w.s.a.s.AnnotationActionEndpointMapping : Supporting [WS-Addressing August 2004, WS-Addressing 1.0]
+2023-12-30T13:18:14.227+01:00  INFO 15496 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port 8080 (http)
+2023-12-30T13:18:14.235+01:00  INFO 15496 --- [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2023-12-30T13:18:14.235+01:00  INFO 15496 --- [main] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/10.1.17]
+2023-12-30T13:18:14.280+01:00  INFO 15496 --- [main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2023-12-30T13:18:14.280+01:00  INFO 15496 --- [main] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 1257 ms
+2023-12-30T13:18:14.403+01:00  INFO 15496 --- [main] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
+2023-12-30T13:18:14.474+01:00  INFO 15496 --- [main] org.hibernate.Version                    : HHH000412: Hibernate ORM core version 6.4.1.Final
+2023-12-30T13:18:14.510+01:00  INFO 15496 --- [main] o.h.c.internal.RegionFactoryInitiator    : HHH000026: Second-level cache disabled
+2023-12-30T13:18:14.750+01:00  INFO 15496 --- [main] o.s.o.j.p.SpringPersistenceUnitInfo      : No LoadTimeWeaver setup: ignoring JPA class transformer
+2023-12-30T13:18:14.776+01:00  INFO 15496 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2023-12-30T13:18:15.374+01:00  INFO 15496 --- [main] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Added connection org.postgresql.jdbc.PgConnection@7686f701
+2023-12-30T13:18:15.376+01:00  INFO 15496 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2023-12-30T13:18:16.414+01:00  INFO 15496 --- [main] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2023-12-30T13:18:16.473+01:00  WARN 15496 --- [main] o.h.engine.jdbc.spi.SqlExceptionHelper   : SQL Warning Code: 0, SQLState: 00000
+2023-12-30T13:18:16.473+01:00  WARN 15496 --- [main] o.h.engine.jdbc.spi.SqlExceptionHelper   : constraint "fkr5ifuxa82mfaxrhgahps7iu2m" of relation "episode" does not exist, skipping
+2023-12-30T13:18:17.392+01:00  INFO 15496 --- [main] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2023-12-30T13:18:17.848+01:00  WARN 15496 --- [main] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2023-12-30T13:18:18.092+01:00  INFO 15496 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port 8080 (http) with context path ''
+2023-12-30T13:18:18.097+01:00  INFO 15496 --- [main] c.e.s.SeriesUpdaterApplication           : Started SeriesUpdaterApplication in 5.412 seconds (process running for 6.84)
+2023-12-30T13:19:12.626+01:00  INFO 15496 --- [SpringApplicationShutdownHook] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
+2023-12-30T13:19:13.028+01:00  INFO 15496 --- [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
+2023-12-30T13:19:13.255+01:00  INFO 15496 --- [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.
+2023-12-30T13:19:17.995+01:00  INFO 18452 --- [main] c.e.s.SeriesUpdaterApplication           : Starting SeriesUpdaterApplication using Java 21.0.1 with PID 18452 (C:\Users\piotr\IdeaProjects\jaz-project\series-updater_\target\classes started by piotr in C:\Users\piotr\IdeaProjects\jaz-project)
+2023-12-30T13:19:17.996+01:00  INFO 18452 --- [main] c.e.s.SeriesUpdaterApplication           : No active profile set, falling back to 1 default profile: "default"
+2023-12-30T13:19:18.380+01:00  INFO 18452 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2023-12-30T13:19:18.425+01:00  INFO 18452 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 40 ms. Found 7 JPA repository interfaces.
+2023-12-30T13:19:18.427+01:00  INFO 18452 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2023-12-30T13:19:18.430+01:00  INFO 18452 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 2 ms. Found 0 JPA repository interfaces.
+2023-12-30T13:19:18.738+01:00  WARN 18452 --- [main] trationDelegate$BeanPostProcessorChecker : Bean 'org.springframework.ws.config.annotation.DelegatingWsConfiguration' of type [org.springframework.ws.config.annotation.DelegatingWsConfiguration$$SpringCGLIB$$0] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying). The currently created BeanPostProcessor [annotationActionEndpointMapping] is declared through a non-static factory method on that class; consider declaring it as static instead.
+2023-12-30T13:19:18.764+01:00  INFO 18452 --- [main] .w.s.a.s.AnnotationActionEndpointMapping : Supporting [WS-Addressing August 2004, WS-Addressing 1.0]
+2023-12-30T13:19:18.951+01:00  INFO 18452 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port 8080 (http)
+2023-12-30T13:19:18.960+01:00  INFO 18452 --- [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2023-12-30T13:19:18.961+01:00  INFO 18452 --- [main] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/10.1.17]
+2023-12-30T13:19:19.009+01:00  INFO 18452 --- [main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2023-12-30T13:19:19.010+01:00  INFO 18452 --- [main] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 972 ms
+2023-12-30T13:19:19.119+01:00  INFO 18452 --- [main] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
+2023-12-30T13:19:19.167+01:00  INFO 18452 --- [main] org.hibernate.Version                    : HHH000412: Hibernate ORM core version 6.4.1.Final
+2023-12-30T13:19:19.206+01:00  INFO 18452 --- [main] o.h.c.internal.RegionFactoryInitiator    : HHH000026: Second-level cache disabled
+2023-12-30T13:19:19.393+01:00  INFO 18452 --- [main] o.s.o.j.p.SpringPersistenceUnitInfo      : No LoadTimeWeaver setup: ignoring JPA class transformer
+2023-12-30T13:19:19.414+01:00  INFO 18452 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2023-12-30T13:19:19.895+01:00  INFO 18452 --- [main] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Added connection org.postgresql.jdbc.PgConnection@67fac095
+2023-12-30T13:19:19.897+01:00  INFO 18452 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2023-12-30T13:19:20.797+01:00  INFO 18452 --- [main] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2023-12-30T13:19:20.892+01:00  WARN 18452 --- [main] o.h.engine.jdbc.spi.SqlExceptionHelper   : SQL Warning Code: 0, SQLState: 00000
+2023-12-30T13:19:20.892+01:00  WARN 18452 --- [main] o.h.engine.jdbc.spi.SqlExceptionHelper   : relation "episode" does not exist, skipping
+2023-12-30T13:19:20.912+01:00  WARN 18452 --- [main] o.h.engine.jdbc.spi.SqlExceptionHelper   : SQL Warning Code: 0, SQLState: 00000
+2023-12-30T13:19:20.912+01:00  WARN 18452 --- [main] o.h.engine.jdbc.spi.SqlExceptionHelper   : relation "genre_series" does not exist, skipping
+2023-12-30T13:19:20.932+01:00  WARN 18452 --- [main] o.h.engine.jdbc.spi.SqlExceptionHelper   : SQL Warning Code: 0, SQLState: 00000
+2023-12-30T13:19:20.932+01:00  WARN 18452 --- [main] o.h.engine.jdbc.spi.SqlExceptionHelper   : relation "genre_series" does not exist, skipping
+2023-12-30T13:19:20.950+01:00  WARN 18452 --- [main] o.h.engine.jdbc.spi.SqlExceptionHelper   : SQL Warning Code: 0, SQLState: 00000
+2023-12-30T13:19:20.950+01:00  WARN 18452 --- [main] o.h.engine.jdbc.spi.SqlExceptionHelper   : relation "language_series" does not exist, skipping
+2023-12-30T13:19:20.969+01:00  WARN 18452 --- [main] o.h.engine.jdbc.spi.SqlExceptionHelper   : SQL Warning Code: 0, SQLState: 00000
+2023-12-30T13:19:20.969+01:00  WARN 18452 --- [main] o.h.engine.jdbc.spi.SqlExceptionHelper   : relation "language_series" does not exist, skipping
+2023-12-30T13:19:20.987+01:00  WARN 18452 --- [main] o.h.engine.jdbc.spi.SqlExceptionHelper   : SQL Warning Code: 0, SQLState: 00000
+2023-12-30T13:19:20.988+01:00  WARN 18452 --- [main] o.h.engine.jdbc.spi.SqlExceptionHelper   : relation "network_series" does not exist, skipping
+2023-12-30T13:19:21.015+01:00  WARN 18452 --- [main] o.h.engine.jdbc.spi.SqlExceptionHelper   : SQL Warning Code: 0, SQLState: 00000
+2023-12-30T13:19:21.015+01:00  WARN 18452 --- [main] o.h.engine.jdbc.spi.SqlExceptionHelper   : relation "network_series" does not exist, skipping
+2023-12-30T13:19:21.035+01:00  WARN 18452 --- [main] o.h.engine.jdbc.spi.SqlExceptionHelper   : SQL Warning Code: 0, SQLState: 00000
+2023-12-30T13:19:21.035+01:00  WARN 18452 --- [main] o.h.engine.jdbc.spi.SqlExceptionHelper   : relation "production_country_series" does not exist, skipping
+2023-12-30T13:19:21.054+01:00  WARN 18452 --- [main] o.h.engine.jdbc.spi.SqlExceptionHelper   : SQL Warning Code: 0, SQLState: 00000
+2023-12-30T13:19:21.055+01:00  WARN 18452 --- [main] o.h.engine.jdbc.spi.SqlExceptionHelper   : relation "production_country_series" does not exist, skipping
+2023-12-30T13:19:21.079+01:00  WARN 18452 --- [main] o.h.engine.jdbc.spi.SqlExceptionHelper   : SQL Warning Code: 0, SQLState: 00000
+2023-12-30T13:19:21.079+01:00  WARN 18452 --- [main] o.h.engine.jdbc.spi.SqlExceptionHelper   : relation "season" does not exist, skipping
+2023-12-30T13:19:21.108+01:00  WARN 18452 --- [main] o.h.engine.jdbc.spi.SqlExceptionHelper   : SQL Warning Code: 0, SQLState: 00000
+2023-12-30T13:19:21.108+01:00  WARN 18452 --- [main] o.h.engine.jdbc.spi.SqlExceptionHelper   : table "episode" does not exist, skipping
+2023-12-30T13:19:21.129+01:00  WARN 18452 --- [main] o.h.engine.jdbc.spi.SqlExceptionHelper   : SQL Warning Code: 0, SQLState: 00000
+2023-12-30T13:19:21.129+01:00  WARN 18452 --- [main] o.h.engine.jdbc.spi.SqlExceptionHelper   : table "genre" does not exist, skipping
+2023-12-30T13:19:21.147+01:00  WARN 18452 --- [main] o.h.engine.jdbc.spi.SqlExceptionHelper   : SQL Warning Code: 0, SQLState: 00000
+2023-12-30T13:19:21.148+01:00  WARN 18452 --- [main] o.h.engine.jdbc.spi.SqlExceptionHelper   : table "genre_series" does not exist, skipping
+2023-12-30T13:19:21.166+01:00  WARN 18452 --- [main] o.h.engine.jdbc.spi.SqlExceptionHelper   : SQL Warning Code: 0, SQLState: 00000
+2023-12-30T13:19:21.166+01:00  WARN 18452 --- [main] o.h.engine.jdbc.spi.SqlExceptionHelper   : table "language" does not exist, skipping
+2023-12-30T13:19:21.185+01:00  WARN 18452 --- [main] o.h.engine.jdbc.spi.SqlExceptionHelper   : SQL Warning Code: 0, SQLState: 00000
+2023-12-30T13:19:21.185+01:00  WARN 18452 --- [main] o.h.engine.jdbc.spi.SqlExceptionHelper   : table "language_series" does not exist, skipping
+2023-12-30T13:19:21.204+01:00  WARN 18452 --- [main] o.h.engine.jdbc.spi.SqlExceptionHelper   : SQL Warning Code: 0, SQLState: 00000
+2023-12-30T13:19:21.204+01:00  WARN 18452 --- [main] o.h.engine.jdbc.spi.SqlExceptionHelper   : table "network" does not exist, skipping
+2023-12-30T13:19:21.223+01:00  WARN 18452 --- [main] o.h.engine.jdbc.spi.SqlExceptionHelper   : SQL Warning Code: 0, SQLState: 00000
+2023-12-30T13:19:21.223+01:00  WARN 18452 --- [main] o.h.engine.jdbc.spi.SqlExceptionHelper   : table "network_series" does not exist, skipping
+2023-12-30T13:19:21.242+01:00  WARN 18452 --- [main] o.h.engine.jdbc.spi.SqlExceptionHelper   : SQL Warning Code: 0, SQLState: 00000
+2023-12-30T13:19:21.242+01:00  WARN 18452 --- [main] o.h.engine.jdbc.spi.SqlExceptionHelper   : table "production_country" does not exist, skipping
+2023-12-30T13:19:21.260+01:00  WARN 18452 --- [main] o.h.engine.jdbc.spi.SqlExceptionHelper   : SQL Warning Code: 0, SQLState: 00000
+2023-12-30T13:19:21.260+01:00  WARN 18452 --- [main] o.h.engine.jdbc.spi.SqlExceptionHelper   : table "production_country_series" does not exist, skipping
+2023-12-30T13:19:21.274+01:00  WARN 18452 --- [main] o.h.engine.jdbc.spi.SqlExceptionHelper   : SQL Warning Code: 0, SQLState: 00000
+2023-12-30T13:19:21.276+01:00  WARN 18452 --- [main] o.h.engine.jdbc.spi.SqlExceptionHelper   : table "season" does not exist, skipping
+2023-12-30T13:19:21.298+01:00  WARN 18452 --- [main] o.h.engine.jdbc.spi.SqlExceptionHelper   : SQL Warning Code: 0, SQLState: 00000
+2023-12-30T13:19:21.298+01:00  WARN 18452 --- [main] o.h.engine.jdbc.spi.SqlExceptionHelper   : table "series" does not exist, skipping
+2023-12-30T13:19:21.745+01:00  INFO 18452 --- [main] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2023-12-30T13:19:22.158+01:00  WARN 18452 --- [main] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2023-12-30T13:19:22.398+01:00  INFO 18452 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port 8080 (http) with context path ''
+2023-12-30T13:19:22.403+01:00  INFO 18452 --- [main] c.e.s.SeriesUpdaterApplication           : Started SeriesUpdaterApplication in 4.732 seconds (process running for 5.184)
+2023-12-30T14:05:11.168+01:00  INFO 18452 --- [SpringApplicationShutdownHook] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
+2023-12-30T14:05:11.790+01:00  INFO 18452 --- [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
+2023-12-30T14:05:12.064+01:00  INFO 18452 --- [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.
