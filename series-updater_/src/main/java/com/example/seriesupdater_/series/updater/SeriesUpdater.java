@@ -10,26 +10,22 @@ import com.example.seriesclient.seriesclient.contract.SeriesSummaryDto;
 import com.example.seriesdata.ICatalogData;
 import com.example.seriesdata.model.*;
 import com.example.seriesupdater_.series.updater.mappers.interfaces.IMapper;
+import lombok.RequiredArgsConstructor;
 import lombok.extern.log4j.Log4j2;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import java.util.ArrayList;
 import java.util.List;
-@Log4j2
 @Service
+@Log4j2
+@RequiredArgsConstructor
 public class SeriesUpdater implements ISeriesUpdater {
     private final IMapper mapper;
     private final ISeriesClient client;
     private final ISeriesConfigurationClient configClient;
     private final ICatalogData dbCatalog;
 
-    public SeriesUpdater(IMapper mapper, ISeriesClient client, ISeriesConfigurationClient configClient, ICatalogData dbCatalog) {
-        this.mapper = mapper;
-        this.client = client;
-        this.configClient = configClient;
-        this.dbCatalog = dbCatalog;
-    }
     public void updateConfig() {
         log.info("Starting updateConfig...");
         log.info("Updating languages...");
