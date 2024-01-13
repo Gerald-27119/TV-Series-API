@@ -15,9 +15,12 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
+import org.springframework.transaction.support.TransactionTemplate;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.concurrent.CompletableFuture;
+
 @Service
 @RequiredArgsConstructor
 public class SeriesUpdater implements ISeriesUpdater {
@@ -25,32 +28,44 @@ public class SeriesUpdater implements ISeriesUpdater {
     private final ISeriesClient client;
     private final ISeriesConfigurationClient configClient;
     private final ICatalogData dbCatalog;
+    private final TransactionTemplate transactionTemplate;
     private static final Logger log = LoggerFactory.getLogger(SeriesUpdater.class);
+
     public void updateConfig() {
         log.info("Starting updateConfig...");
-        log.info("Updating languages...");
-        List<Language> languagesToSave = new ArrayList<>();
-        configClient.getLanguages().forEach(languageDto -> {
-            Language language = mapper.language().toEntity(languageDto);
-            languagesToSave.add(language);
-        });
-        dbCatalog.getLanguages().saveAll(languagesToSave);
-        log.info("Updating genres...");
 
-        List<Genre> genresToSave = new ArrayList<>();
-        configClient.getGenres().forEach(genreDto -> {
-            Genre genre = mapper.genre().toEntity(genreDto);
-            genresToSave.add(genre);
+        CompletableFuture<Void> languagesFuture = CompletableFuture.runAsync(() -> {
+            log.info("Updating languages...");
+            List<Language> languagesToSave = new ArrayList<>();
+            configClient.getLanguages().forEach(languageDto -> {
+                Language language = mapper.language().toEntity(languageDto);
+                languagesToSave.add(language);
+            });
+            dbCatalog.getLanguages().saveAll(languagesToSave);
         });
-        dbCatalog.getGenres().saveAll(genresToSave);
-        log.info("Updating production countries...");
 
-        List<ProductionCountry> countriesToSave = new ArrayList<>();
-        configClient.getCountries().forEach(countryDto -> {
-            ProductionCountry productionCountry = mapper.productionCountry().toEntity(countryDto);
-            countriesToSave.add(productionCountry);
+        CompletableFuture<Void> genresFuture = CompletableFuture.runAsync(() -> {
+            log.info("Updating genres...");
+            List<Genre> genresToSave = new ArrayList<>();
+            configClient.getGenres().forEach(genreDto -> {
+                Genre genre = mapper.genre().toEntity(genreDto);
+                genresToSave.add(genre);
+            });
+            dbCatalog.getGenres().saveAll(genresToSave);
         });
-        dbCatalog.getProductionCountries().saveAll(countriesToSave);
+
+        CompletableFuture<Void> countriesFuture = CompletableFuture.runAsync(() -> {
+            log.info("Updating production countries...");
+            List<ProductionCountry> countriesToSave = new ArrayList<>();
+            configClient.getCountries().forEach(countryDto -> {
+                ProductionCountry productionCountry = mapper.productionCountry().toEntity(countryDto);
+                countriesToSave.add(productionCountry);
+            });
+            dbCatalog.getProductionCountries().saveAll(countriesToSave);
+        });
+
+        CompletableFuture.allOf(languagesFuture, genresFuture, countriesFuture).join();
+
         log.info("Finished updateConfig.");
     }
 
@@ -60,21 +75,32 @@ public class SeriesUpdater implements ISeriesUpdater {
         log.info("Starting updateByPopularity for pages from " + firstPage + " to " + lastPage + "...");
         updateConfig();
 
+        List<CompletableFuture<Void>> futures = new ArrayList<>();
+
         for(int i = firstPage; i <= lastPage; i++) {
             client.getPopular(i).getResults().forEach(seriesSummaryDto -> {
-                var sourceId = seriesSummaryDto.getId();
-                Series series = dbCatalog.getSeries().findBySourceId(sourceId).orElse(null);
-                if (series == null) {
-                    saveSeries(seriesSummaryDto);
-                }
-                else {
-                    log.info("Series with source ID = {} already exists in database", sourceId);
-                }
+                CompletableFuture<Void> seriesFuture = CompletableFuture.runAsync(() -> {
+                    transactionTemplate.execute(status -> {
+                        var sourceId = seriesSummaryDto.getId();
+                        Series series = dbCatalog.getSeries().findBySourceId(sourceId).orElse(null);
+                        if (series == null) {
+                            saveSeries(seriesSummaryDto);
+                        }
+                        else {
+                            log.info("Series with source ID = {} already exists in database", sourceId);
+                        }
+                        return null;
+                    });
+                });
+                futures.add(seriesFuture);
             });
         }
+
+        CompletableFuture.allOf(futures.toArray(new CompletableFuture[0])).join();
+
         log.info("Finished updateByPopularity.");
     }
-
+    @Transactional
     public void saveSeries(SeriesSummaryDto seriesSummaryDto) {
         SeriesDetailsDto seriesDetailsDto = client.getSeriesDetails(seriesSummaryDto.getId());
         Series series = mapper.series().toEntity(seriesDetailsDto);
@@ -88,7 +114,6 @@ public class SeriesUpdater implements ISeriesUpdater {
         dbCatalog.getSeries().save(series);
         log.info("Series with source ID = {} saved to database", series.getSourceId());
     }
-
 
     public void saveLanguages(SeriesDetailsDto seriesDetailsDto, Series series) {
         seriesDetailsDto.getLanguages().forEach(languageDto -> {
