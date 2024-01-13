@@ -9,7 +9,7 @@ import org.springframework.stereotype.Component;
 @Component
 public class ProductionCountryMapper implements IMap<ProductionCountryDetailsDto, ProductionCountry> {
     @Override
-    public ProductionCountry toEntity(ProductionCountryDetailsDto dto) {//to sjest smieszne bo CountryDto przenosi przeciez tez native name
+    public ProductionCountry toEntity(ProductionCountryDetailsDto dto) {
         ProductionCountry productionCountry = new ProductionCountry();
         productionCountry.setName(dto.getEnglishName());
 

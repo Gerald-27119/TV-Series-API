@@ -20,7 +20,6 @@ public class SeasonMapper implements IMap<SeasonDetailsDto, Season> {
         season.setPosterPath(dto.getPosterPath());
         season.setSeasonNumber(dto.getSeasonNumber());
         season.setVoteAverage(dto.getVoteAverage());
-
         return season;
     }
 }

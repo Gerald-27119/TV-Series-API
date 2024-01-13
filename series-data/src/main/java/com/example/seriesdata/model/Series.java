@@ -11,7 +11,6 @@ import java.util.List;
 
 @Entity
 @Data
-@Builder
 @RequiredArgsConstructor
 public class Series {
     @Id

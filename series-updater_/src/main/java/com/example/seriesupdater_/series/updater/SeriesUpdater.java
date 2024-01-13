@@ -11,21 +11,21 @@ import com.example.seriesdata.ICatalogData;
 import com.example.seriesdata.model.*;
 import com.example.seriesupdater_.series.updater.mappers.interfaces.IMapper;
 import lombok.RequiredArgsConstructor;
-import lombok.extern.log4j.Log4j2;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import java.util.ArrayList;
 import java.util.List;
 @Service
-@Log4j2
 @RequiredArgsConstructor
 public class SeriesUpdater implements ISeriesUpdater {
     private final IMapper mapper;
     private final ISeriesClient client;
     private final ISeriesConfigurationClient configClient;
     private final ICatalogData dbCatalog;
-
+    private static final Logger log = LoggerFactory.getLogger(SeriesUpdater.class);
     public void updateConfig() {
         log.info("Starting updateConfig...");
         log.info("Updating languages...");

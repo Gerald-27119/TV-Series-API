@@ -19,5 +19,4 @@ public class SecurityConfiguration {
                 .oauth2Login(withDefaults())
                 .build();
     }
-//.formLogin(withDefaults())
 }

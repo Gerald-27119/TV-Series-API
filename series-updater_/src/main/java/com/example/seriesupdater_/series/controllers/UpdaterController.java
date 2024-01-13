@@ -10,7 +10,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 
 
 @Controller
-@RequestMapping("updater")
+@RequestMapping("updater/update")
 public class UpdaterController {
     private final ISeriesUpdater seriesUpdater;
 
@@ -18,7 +18,7 @@ public class UpdaterController {
         this.seriesUpdater = seriesUpdater;
     }
 
-    @GetMapping("update")
+    @GetMapping("popular")
     public ResponseEntity update(@RequestParam int firstPage, @RequestParam int lastPage) {
         new Thread(() -> seriesUpdater.updateByPopularity(firstPage,lastPage)).start();
         return ResponseEntity.ok().build();

@@ -1,0 +1,63 @@
+[INFO ] 2024-01-13 14:29:30.813 [main] SeriesUpdaterApplication - Starting SeriesUpdaterApplication using Java 17.0.9 with PID 15652 (C:\Users\piotr\IdeaProjects\jaz-project\series-updater_\target\classes started by piotr in C:\Users\piotr\IdeaProjects\jaz-project)
+[INFO ] 2024-01-13 14:29:30.828 [main] SeriesUpdaterApplication - No active profile set, falling back to 1 default profile: "default"
+[INFO ] 2024-01-13 14:29:31.383 [main] RepositoryConfigurationDelegate - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+[INFO ] 2024-01-13 14:29:31.464 [main] RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 71 ms. Found 7 JPA repository interfaces.
+[INFO ] 2024-01-13 14:29:31.466 [main] RepositoryConfigurationDelegate - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+[INFO ] 2024-01-13 14:29:31.474 [main] RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 3 ms. Found 0 JPA repository interfaces.
+[WARN ] 2024-01-13 14:29:31.931 [main] PostProcessorRegistrationDelegate$BeanPostProcessorChecker - Bean 'org.springframework.ws.config.annotation.DelegatingWsConfiguration' of type [org.springframework.ws.config.annotation.DelegatingWsConfiguration$$SpringCGLIB$$0] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying). The currently created BeanPostProcessor [annotationActionEndpointMapping] is declared through a non-static factory method on that class; consider declaring it as static instead.
+[INFO ] 2024-01-13 14:29:31.959 [main] AnnotationActionEndpointMapping - Supporting [WS-Addressing August 2004, WS-Addressing 1.0]
+[INFO ] 2024-01-13 14:29:32.251 [main] TomcatWebServer - Tomcat initialized with port 8080 (http)
+[INFO ] 2024-01-13 14:29:32.333 [main] ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 1434 ms
+[INFO ] 2024-01-13 14:29:32.513 [main] LogHelper - HHH000204: Processing PersistenceUnitInfo [name: default]
+[INFO ] 2024-01-13 14:29:32.584 [main] Version - HHH000412: Hibernate ORM core version 6.4.1.Final
+[INFO ] 2024-01-13 14:29:32.628 [main] RegionFactoryInitiator - HHH000026: Second-level cache disabled
+[INFO ] 2024-01-13 14:29:32.845 [main] SpringPersistenceUnitInfo - No LoadTimeWeaver setup: ignoring JPA class transformer
+[INFO ] 2024-01-13 14:29:34.434 [main] JtaPlatformInitiator - HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+[INFO ] 2024-01-13 14:29:35.272 [main] LocalContainerEntityManagerFactoryBean - Initialized JPA EntityManagerFactory for persistence unit 'default'
+[WARN ] 2024-01-13 14:29:35.789 [main] JpaBaseConfiguration$JpaWebConfiguration - spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+[INFO ] 2024-01-13 14:29:36.170 [main] TomcatWebServer - Tomcat started on port 8080 (http) with context path ''
+[INFO ] 2024-01-13 14:29:36.185 [main] SeriesUpdaterApplication - Started SeriesUpdaterApplication in 5.784 seconds (process running for 6.93)
+[INFO ] 2024-01-13 14:29:37.069 [http-nio-8080-exec-2] DispatcherServlet - Initializing Servlet 'dispatcherServlet'
+[INFO ] 2024-01-13 14:29:37.070 [http-nio-8080-exec-2] DispatcherServlet - Completed initialization in 1 ms
+[INFO ] 2024-01-13 14:29:37.136 [Thread-3] SeriesUpdater - Starting updateByPopularity for pages from 20 to 20...
+[INFO ] 2024-01-13 14:29:37.136 [Thread-3] SeriesUpdater - Starting updateConfig...
+[INFO ] 2024-01-13 14:29:37.136 [Thread-3] SeriesUpdater - Updating languages...
+[INFO ] 2024-01-13 14:29:40.504 [Thread-3] SeriesUpdater - Updating genres...
+[INFO ] 2024-01-13 14:29:40.803 [Thread-3] SeriesUpdater - Updating production countries...
+[INFO ] 2024-01-13 14:29:43.518 [SpringApplicationShutdownHook] LocalContainerEntityManagerFactoryBean - Closing JPA EntityManagerFactory for persistence unit 'default'
+[ERROR] 2024-01-13 14:29:43.527 [Thread-3] TransactionInterceptor - Application exception overridden by rollback exception
+org.springframework.beans.factory.BeanCreationNotAllowedException: Error creating bean with name 'dataSourceScriptDatabaseInitializer': Singleton bean creation not allowed while singletons of this factory are in destruction (Do not request a bean from a BeanFactory in a destroy method implementation!)
+	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.getSingleton(DefaultSingletonBeanRegistry.java:220) ~[spring-beans-6.1.2.jar:6.1.2]
+	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:323) ~[spring-beans-6.1.2.jar:6.1.2]
+	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:199) ~[spring-beans-6.1.2.jar:6.1.2]
+	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:312) ~[spring-beans-6.1.2.jar:6.1.2]
+	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:199) ~[spring-beans-6.1.2.jar:6.1.2]
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory$1.orderedStream(DefaultListableBeanFactory.java:473) ~[spring-beans-6.1.2.jar:6.1.2]
+	at org.springframework.dao.support.PersistenceExceptionTranslationInterceptor.detectPersistenceExceptionTranslators(PersistenceExceptionTranslationInterceptor.java:167) ~[spring-tx-6.1.2.jar:6.1.2]
+	at org.springframework.dao.support.PersistenceExceptionTranslationInterceptor.invoke(PersistenceExceptionTranslationInterceptor.java:149) ~[spring-tx-6.1.2.jar:6.1.2]
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:184) ~[spring-aop-6.1.2.jar:6.1.2]
+	at org.springframework.data.jpa.repository.support.CrudMethodMetadataPostProcessor$CrudMethodMetadataPopulatingMethodInterceptor.invoke(CrudMethodMetadataPostProcessor.java:164) ~[spring-data-jpa-3.2.1.jar:3.2.1]
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:184) ~[spring-aop-6.1.2.jar:6.1.2]
+	at org.springframework.aop.interceptor.ExposeInvocationInterceptor.invoke(ExposeInvocationInterceptor.java:97) ~[spring-aop-6.1.2.jar:6.1.2]
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:184) ~[spring-aop-6.1.2.jar:6.1.2]
+	at org.springframework.aop.framework.JdkDynamicAopProxy.invoke(JdkDynamicAopProxy.java:249) ~[spring-aop-6.1.2.jar:6.1.2]
+	at jdk.proxy2/jdk.proxy2.$Proxy126.saveAll(Unknown Source) ~[?:?]
+	at com.example.seriesupdater_.series.updater.SeriesUpdater.updateConfig(SeriesUpdater.java:56) ~[classes/:?]
+	at com.example.seriesupdater_.series.updater.SeriesUpdater.updateByPopularity(SeriesUpdater.java:64) ~[classes/:?]
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method) ~[?:?]
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77) ~[?:?]
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43) ~[?:?]
+	at java.base/java.lang.reflect.Method.invoke(Method.java:568) ~[?:?]
+	at org.springframework.aop.support.AopUtils.invokeJoinpointUsingReflection(AopUtils.java:352) ~[spring-aop-6.1.2.jar:6.1.2]
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.invokeJoinpoint(ReflectiveMethodInvocation.java:196) ~[spring-aop-6.1.2.jar:6.1.2]
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:163) ~[spring-aop-6.1.2.jar:6.1.2]
+	at org.springframework.aop.framework.CglibAopProxy$CglibMethodInvocation.proceed(CglibAopProxy.java:765) ~[spring-aop-6.1.2.jar:6.1.2]
+	at org.springframework.transaction.interceptor.TransactionInterceptor$1.proceedWithInvocation(TransactionInterceptor.java:123) ~[spring-tx-6.1.2.jar:6.1.2]
+	at org.springframework.transaction.interceptor.TransactionAspectSupport.invokeWithinTransaction(TransactionAspectSupport.java:385) ~[spring-tx-6.1.2.jar:6.1.2]
+	at org.springframework.transaction.interceptor.TransactionInterceptor.invoke(TransactionInterceptor.java:119) ~[spring-tx-6.1.2.jar:6.1.2]
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:184) ~[spring-aop-6.1.2.jar:6.1.2]
+	at org.springframework.aop.framework.CglibAopProxy$CglibMethodInvocation.proceed(CglibAopProxy.java:765) ~[spring-aop-6.1.2.jar:6.1.2]
+	at org.springframework.aop.framework.CglibAopProxy$DynamicAdvisedInterceptor.intercept(CglibAopProxy.java:717) ~[spring-aop-6.1.2.jar:6.1.2]
+	at com.example.seriesupdater_.series.updater.SeriesUpdater$$SpringCGLIB$$0.updateByPopularity(<generated>) ~[classes/:?]
+	at com.example.seriesupdater_.series.controllers.UpdaterController.lambda$update$0(UpdaterController.java:23) ~[classes/:?]
+	at java.base/java.lang.Thread.run(Thread.java:857) [?:?]

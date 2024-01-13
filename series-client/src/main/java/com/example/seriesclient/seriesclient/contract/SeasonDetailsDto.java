@@ -1,10 +1,13 @@
 package com.example.seriesclient.seriesclient.contract;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
+import lombok.Getter;
+import lombok.Setter;
 
 import java.time.LocalDate;
 import java.util.List;
-
+@Getter
+@Setter
 public class SeasonDetailsDto  {
 
     @JsonProperty("_id")
@@ -24,67 +27,4 @@ public class SeasonDetailsDto  {
     @JsonProperty("episodes")
     private List<EpisodeSummaryDto> episodes;
 
-    public String getId() {
-        return id;
-    }
-
-    public void setId(String id) {
-        this.id = id;
-    }
-
-    public String getName() {
-        return name;
-    }
-
-    public void setName(String name) {
-        this.name = name;
-    }
-
-    public String getOverview() {
-        return overview;
-    }
-
-    public void setOverview(String overview) {
-        this.overview = overview;
-    }
-
-    public String getPosterPath() {
-        return posterPath;
-    }
-
-    public void setPosterPath(String posterPath) {
-        this.posterPath = posterPath;
-    }
-
-    public int getSeasonNumber() {
-        return seasonNumber;
-    }
-
-    public void setSeasonNumber(int seasonNumber) {
-        this.seasonNumber = seasonNumber;
-    }
-
-    public double getVoteAverage() {
-        return voteAverage;
-    }
-
-    public void setVoteAverage(double voteAverage) {
-        this.voteAverage = voteAverage;
-    }
-
-    public LocalDate getAirDate() {
-        return airDate;
-    }
-
-    public void setAirDate(LocalDate airDate) {
-        this.airDate = airDate;
-    }
-
-    public List<EpisodeSummaryDto> getEpisodes() {
-        return episodes;
-    }
-
-    public void setEpisodes(List<EpisodeSummaryDto> episodes) {
-        this.episodes = episodes;
-    }
 }

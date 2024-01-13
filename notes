@@ -1,0 +1,3 @@
+spring.jpa.hibernate.ddl-auto=create-drop
+spring.jpa.hibernate.ddl-auto=create
+używam defaultowego loggera ze spring-boota - Logback
