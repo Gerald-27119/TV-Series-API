@@ -1,3 +1,8 @@
 spring.jpa.hibernate.ddl-auto=create-drop
 spring.jpa.hibernate.ddl-auto=create
 używam defaultowego loggera ze spring-boota - Logback
+@Accessors(fluent = true, chain = true) - zamiast buildera
+
+spring.datasource.username=${postgres_user}
+spring.datasource.password=${postgres_password}
+spring.datasource.url=${postgres_url_jaz_project}

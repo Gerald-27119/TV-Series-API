@@ -16,6 +16,7 @@ public class ProductionCountry {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long id;
+
     String name;
 
     @ManyToMany

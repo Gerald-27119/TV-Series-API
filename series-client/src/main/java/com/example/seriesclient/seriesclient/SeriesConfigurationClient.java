@@ -11,9 +11,13 @@ import org.springframework.web.client.RestTemplate;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Objects;
+
+import static java.util.Arrays.asList;
+import static java.util.Objects.requireNonNull;
 
 @Component
-public class SeriesConfigurationClient implements ISeriesConfigurationClient{
+public class SeriesConfigurationClient implements ISeriesConfigurationClient {
 
     RestTemplate restClient;
     String baseUrl;
@@ -23,10 +27,10 @@ public class SeriesConfigurationClient implements ISeriesConfigurationClient{
 
     public SeriesConfigurationClient(ISeriesClientSettings settings) {
         restClient = new RestTemplate();
-        this.baseUrl=settings.getBaseUrl();
-        this.apiKey= settings.getApiKey();
-        this.version= settings.getApiVersion();
-        this.settings=settings;
+        this.baseUrl = settings.getBaseUrl();
+        this.apiKey = settings.getApiKey();
+        this.version = settings.getApiVersion();
+        this.settings = settings;
     }
 
     @Override
@@ -35,11 +39,7 @@ public class SeriesConfigurationClient implements ISeriesConfigurationClient{
                 .pathSegment("configuration", "languages")
                 .build()
                 .toUriString();
-        return restClient.exchange(url,
-                        HttpMethod.GET,
-                        null,
-                        new ParameterizedTypeReference<ArrayList<LanguageDetailsDto>>() {})
-                .getBody();
+        return asList(requireNonNull(restClient.getForObject(url, LanguageDetailsDto[].class)));
     }
 
     @Override
@@ -48,7 +48,7 @@ public class SeriesConfigurationClient implements ISeriesConfigurationClient{
                 .pathSegment("genre", "tv", "list")
                 .build()
                 .toUriString();
-        return restClient.getForObject(url, GenresListDto.class).getGenres();
+        return requireNonNull(restClient.getForObject(url, GenresListDto.class)).getGenres();
     }
 
     @Override
@@ -57,10 +57,6 @@ public class SeriesConfigurationClient implements ISeriesConfigurationClient{
                 .pathSegment("configuration", "countries")
                 .build()
                 .toUriString();
-        return restClient.exchange(url,
-                        HttpMethod.GET,
-                        null,
-                        new ParameterizedTypeReference<ArrayList<ProductionCountryDetailsDto>>() {})
-                .getBody();
+        return asList(requireNonNull(restClient.getForObject(url, ProductionCountryDetailsDto[].class)));
     }
 }

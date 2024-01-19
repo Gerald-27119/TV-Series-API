@@ -10,7 +10,7 @@ public class SeriesClientSettings implements ISeriesClientSettings {
     private final int apiVersion;
 
     public SeriesClientSettings(
-            @Value("${api_key}") String apiKey,
+            @Value("67cf6c481090cb3f6b929e68a8d601b0") String apiKey,
             @Value("api.themoviedb.org") String baseUrl,
             @Value("3") int apiVersion) {
 

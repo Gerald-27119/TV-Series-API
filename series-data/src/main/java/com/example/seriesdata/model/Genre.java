@@ -1,10 +1,8 @@
 package com.example.seriesdata.model;
 
 import jakarta.persistence.*;
-import lombok.Builder;
 import lombok.Data;
 import lombok.RequiredArgsConstructor;
-
 import java.util.ArrayList;
 import java.util.List;
 
@@ -16,7 +14,6 @@ public class Genre {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long id;
-
     private long sourceId;
     private String name;
 

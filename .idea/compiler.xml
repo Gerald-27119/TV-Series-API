@@ -20,6 +20,7 @@
       <module name="series-updater.main" target="17" />
       <module name="series-updater.test" target="17" />
       <module name="series-updaterr" target="17" />
+      <module name="series-web" target="17" />
     </bytecodeTargetLevel>
   </component>
   <component name="JavacSettings">
@@ -29,6 +30,7 @@
       <module name="series-tools" options="-parameters" />
       <module name="series-updater" options="-parameters" />
       <module name="series-updater_" options="-parameters" />
+      <module name="series-web" options="-parameters" />
     </option>
   </component>
 </project>

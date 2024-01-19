@@ -8,11 +8,10 @@ import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 
 @EnableJpaRepositories
-@SpringBootApplication(scanBasePackages = {"com.example.seriesclient", "com.example.seriesupdater_","com.example.seriesdata"})
+@SpringBootApplication(scanBasePackages = {"com.example.seriestools","com.example.seriesclient", "com.example.seriesupdater_","com.example.seriesdata"})
 public class SeriesUpdaterApplication {
 
     public static void main(String[] args) {
-        System.setProperty("appLifeCycle", LocalDateTime.now().format(DateTimeFormatter.ofPattern("yyyyMMddHHmmss")));
         SpringApplication.run(SeriesUpdaterApplication.class, args);
     }
 

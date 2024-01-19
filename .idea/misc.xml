@@ -13,11 +13,13 @@
         <option value="$PROJECT_DIR$/series-updater/pom.xml" />
         <option value="$PROJECT_DIR$/series-tools/pom.xml" />
         <option value="$PROJECT_DIR$/series-updater_/pom.xml" />
+        <option value="$PROJECT_DIR$/series-web/pom.xml" />
       </list>
     </option>
     <option name="ignoredFiles">
       <set>
         <option value="$PROJECT_DIR$/series-updater/pom.xml" />
+        <option value="$PROJECT_DIR$/series-web/pom.xml" />
       </set>
     </option>
     <option name="workspaceImportForciblyTurnedOn" value="true" />

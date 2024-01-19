@@ -12,12 +12,17 @@ import java.util.List;
 @Data
 @RequiredArgsConstructor
 public class Network {
+
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long id;
+
     private String name;
+
     private String originCountry;
+
     private String logoPath;
+
     @ManyToMany
     private List<Series> series = new ArrayList<>();
 

@@ -6,6 +6,7 @@ import com.example.seriesclient.seriesclient.contract.configuration.ProductionCo
 import com.example.seriesdata.model.*;
 import com.example.seriesupdater_.series.updater.mappers.interfaces.IMap;
 import com.example.seriesupdater_.series.updater.mappers.interfaces.IMapper;
+import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Component;
 
 @Component
@@ -18,12 +19,7 @@ public class Mapper implements IMapper {
     IMap<SeriesDetailsDto,Series> series;
     IMap<EpisodeDetailsDto, Episode> episode;
 
-
-    public Mapper(IMap<NetworkDto, Network> network, IMap<GenreDto, Genre> genre,
-                  IMap<ProductionCountryDetailsDto, ProductionCountry> productionCountry,
-                  IMap<LanguageDetailsDto, Language> language,
-                  IMap<SeasonDetailsDto, Season> season, IMap<SeriesDetailsDto, Series> series,
-                  IMap<EpisodeDetailsDto, Episode> episode) {
+    public Mapper(IMap<NetworkDto, Network> network, IMap<GenreDto, Genre> genre, IMap<ProductionCountryDetailsDto, ProductionCountry> productionCountry, IMap<LanguageDetailsDto, Language> language, IMap<SeasonDetailsDto, Season> season, IMap<SeriesDetailsDto, Series> series, IMap<EpisodeDetailsDto, Episode> episode) {
         this.network = network;
         this.genre = genre;
         this.productionCountry = productionCountry;

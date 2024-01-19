@@ -1,7 +1,7 @@
 package com.example.seriesclient;
 
-import com.example.seriesclient.seriesclient.ISeriesClient;
-import com.example.seriesclient.seriesclient.ISeriesConfigurationClient;
+import com.example.seriesclient.seriesclient.*;
+import lombok.RequiredArgsConstructor;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
@@ -19,7 +19,8 @@ public class SeriesClientApplication implements CommandLineRunner {
     }
     @Override
     public void run(String... args) throws Exception {
-        //Main.test(seriesClient);
+//        var genres = seriesConfigurationClient.getGenres();
+//        var languages = seriesConfigurationClient.getLanguages();
+//        System.out.println("Genres:");
     }
-
 }

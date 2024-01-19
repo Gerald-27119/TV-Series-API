@@ -1,18 +1,12 @@
 package com.example.seriesclient.seriesclient.contract.configuration;
 
 import com.example.seriesclient.seriesclient.contract.GenreDto;
+import lombok.Getter;
 
 import java.util.List;
 
+@Getter
 public class GenresListDto {
-
-    public List<GenreDto> getGenres() {
-        return genres;
-    }
-
-    public void setGenres(List<GenreDto> genres) {
-        this.genres = genres;
-    }
-
     private List<GenreDto> genres;
+
 }

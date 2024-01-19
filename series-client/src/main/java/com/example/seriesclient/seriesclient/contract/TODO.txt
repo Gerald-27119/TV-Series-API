@@ -1,4 +1,0 @@
-zajmij sie:
-1. w trending sciagnieciem listy nazw seriali z ich id (pages)
-2. sciagnieciem konfiguracji
-https://developer.themoviedb.org/reference/intro/getting-started
