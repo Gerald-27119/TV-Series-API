@@ -14,6 +14,7 @@
         <option value="$PROJECT_DIR$/series-tools/pom.xml" />
         <option value="$PROJECT_DIR$/series-updater_/pom.xml" />
         <option value="$PROJECT_DIR$/series-web/pom.xml" />
+        <option value="$PROJECT_DIR$/web-api/pom.xml" />
       </list>
     </option>
     <option name="ignoredFiles">
