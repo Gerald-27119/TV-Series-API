@@ -1,11 +1,11 @@
 package com.example.webapi.dtos;
 
 import com.example.seriesclient.seriesclient.contract.EpisodeSummaryDto;
+import lombok.Getter;
 import lombok.experimental.Accessors;
 
 import java.time.LocalDate;
 import java.util.List;
-
 public record SeasonDto(
         String name,
 

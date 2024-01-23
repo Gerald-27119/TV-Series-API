@@ -1,19 +1,13 @@
 package com.example.webapi.web;
 
 import com.example.seriesdata.ICatalogData;
-import com.example.seriesdata.model.Genre;
-import com.example.seriesdata.model.Language;
-import com.example.seriesdata.model.ProductionCountry;
-import com.example.seriesdata.model.Series;
+import com.example.seriesdata.model.*;
 import com.example.webapi.dtos.*;
 import jakarta.persistence.EntityManager;
 import jakarta.persistence.PersistenceContext;
 import lombok.RequiredArgsConstructor;
-import org.springframework.boot.context.config.ConfigDataResourceNotFoundException;
-import org.springframework.data.crossstore.ChangeSetPersister;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
-import org.springframework.web.bind.annotation.GetMapping;
 
 import java.security.InvalidParameterException;
 import java.util.List;
@@ -100,6 +94,89 @@ public class WebService {
 
         catalogData.getSeries().save(series);
 
+        return mapSeriesToDto(series);
+    }
+    public List<GenreDto> getAllGenres() {
+        return catalogData.getGenres().findAll().stream()
+                .map(genre -> new GenreDto(genre.getName()))
+                .collect(Collectors.toList());
+    }
+    public List<ProductionCountryDto> getAllProductionCountries() {
+        return catalogData.getProductionCountries().findAll().stream()
+                .map(productionCountry -> new ProductionCountryDto(productionCountry.getName()))
+                .collect(Collectors.toList());
+    }
+    public List<NetworkDto> getAllNetworks() {
+        return catalogData.getNetworks().findAll().stream()
+                .map(network -> new NetworkDto(
+                        network.getName(),
+                        network.getLogoPath(),
+                        network.getOriginCountry()
+                ))
+                .collect(Collectors.toList());
+    }
+    public List<LanguageDto> getAllLanguages() {
+        return catalogData.getLanguages().findAll().stream()
+                .map(language -> new LanguageDto(language.getNativeName(), language.getEnglishName()))
+                .collect(Collectors.toList());
+    }
+    @Transactional
+    public SeriesDto addGenreToSeries(Long seriesId, GenreDto genreDto) {
+        Series series = catalogData.getSeries().findById(seriesId)
+                .orElseThrow(InvalidParameterException::new);
+        if(catalogData.getGenres().existsByName(genreDto.name()))
+        {
+            Genre genre = catalogData.getGenres().findTopByName(genreDto.name());
+            genre.getSeries().add(series);
+            series.getGenres().add(genre);
+            catalogData.getSeries().save(series);
+        }
+        else throw new InvalidParameterException();
+        return mapSeriesToDto(series);
+    }
+
+    @Transactional
+    public SeriesDto addLanguageToSeries(Long seriesId, LanguageDto languageDto) {
+        Series series = catalogData.getSeries().findById(seriesId)
+                .orElseThrow(InvalidParameterException::new);
+        if(catalogData.getLanguages().existsByEnglishName(languageDto.englishName())) {
+            Language language = catalogData.getLanguages().findTopByEnglishName(languageDto.englishName());
+            language.getSeries().add(series);
+            series.getLanguages().add(language);
+            catalogData.getSeries().save(series);
+        } else {
+            throw new InvalidParameterException();
+        }
+        return mapSeriesToDto(series);
+    }
+
+    @Transactional
+    public SeriesDto addNetworkToSeries(Long seriesId, NetworkDto networkDto) {
+        Series series = catalogData.getSeries().findById(seriesId)
+                .orElseThrow(InvalidParameterException::new);
+        if(catalogData.getNetworks().existsByName(networkDto.name())) {
+            Network network = catalogData.getNetworks().findTopByName(networkDto.name());
+            network.getSeries().add(series);
+            series.getNetworks().add(network);
+            catalogData.getSeries().save(series);
+        } else {
+            throw new InvalidParameterException();
+        }
+        return mapSeriesToDto(series);
+    }
+
+    @Transactional
+    public SeriesDto addProductionCountryToSeries(Long seriesId, ProductionCountryDto productionCountryDto) {
+        Series series = catalogData.getSeries().findById(seriesId)
+                .orElseThrow(InvalidParameterException::new);
+        if(catalogData.getProductionCountries().existsByName(productionCountryDto.name())) {
+            ProductionCountry productionCountry = catalogData.getProductionCountries().findTopByName(productionCountryDto.name());
+            productionCountry.getSeries().add(series);
+            series.getProductionCountries().add(productionCountry);
+            catalogData.getSeries().save(series);
+        } else {
+            throw new InvalidParameterException();
+        }
         return mapSeriesToDto(series);
     }
     private SeriesDto mapSeriesToDto(Series series){

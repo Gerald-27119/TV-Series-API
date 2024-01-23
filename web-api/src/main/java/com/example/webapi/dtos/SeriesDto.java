@@ -4,11 +4,11 @@ import com.example.seriesclient.seriesclient.contract.ProductionCountrySummaryDt
 import com.example.seriesclient.seriesclient.contract.SeasonSummaryDto;
 import com.example.seriesclient.seriesclient.contract.configuration.LanguageDetailsDto;
 import com.fasterxml.jackson.annotation.JsonProperty;
+import lombok.Getter;
 import lombok.experimental.Accessors;
 
 import java.time.LocalDate;
 import java.util.List;
-
 public record SeriesDto(
         long id,
         String name,
